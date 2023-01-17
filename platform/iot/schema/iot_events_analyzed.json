@@ -1,0 +1,32 @@
+[
+ {
+   "mode": "NULLABLE",
+   "name": "timestamp",
+   "type": "TIMESTAMP"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "value",
+   "type": "FLOAT"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "is_anomaly",
+   "type": "BOOLEAN"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "lower_bound",
+   "type": "FLOAT"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "upper_bound",
+   "type": "FLOAT"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "anomaly_probability",
+   "type": "FLOAT"
+ }
+]

@@ -1,0 +1,17 @@
+[
+ {
+   "mode": "NULLABLE",
+   "name": "timestamp",
+   "type": "TIMESTAMP"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "value",
+   "type": "FLOAT"
+ },
+ {
+   "mode": "NULLABLE",
+   "name": "deviceId",
+   "type": "STRING"
+ }
+]

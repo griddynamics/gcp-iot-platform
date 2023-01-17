@@ -1,0 +1,44 @@
+FROM pytorch/torchserve:latest-cpu
+
+
+RUN python3 -m pip install --upgrade pip
+
+USER root
+RUN printf "\nservice_envelope=json" >> /home/model-server/config.properties
+RUN printf "\ninference_address=http://0.0.0.0:7080" >> /home/model-server/config.properties
+RUN printf "\nmanagement_address=http://0.0.0.0:7081" >> /home/model-server/config.properties
+
+USER model-server
+
+# expose health and prediction listener ports from the image
+EXPOSE 7080
+EXPOSE 7081
+
+# Adding necessary files
+COPY pytorch_model.bin /home/model-server/pytorch_model.bin
+COPY config.json /home/model-server/config.json
+COPY predictor.py /home/model-server/predictor.py
+COPY models.py /home/model-server/models.py
+COPY ts_handler.py /home/model-server/ts_handler.py
+COPY requirements.txt /home/model-server/requirements.txt
+
+# install dependencies
+RUN python3 -m pip install -r /home/model-server/requirements.txt
+# create model archive file packaging model artifacts and dependencies
+RUN torch-model-archiver -f \
+  --model-name=anomaly \
+  --version=1.0 \
+  --serialized-file=/home/model-server/pytorch_model.bin \
+  --handler=/home/model-server/ts_handler.py \
+  --extra-files "/home/model-server/config.json,/home/model-server/predictor.py,/home/model-server/models.py" \
+  --export-path=/home/model-server/model-store
+
+# run Torchserve HTTP serve to respond to prediction requests
+
+CMD ["torchserve", \
+     "--start", \
+     "--ts-config=/home/model-server/config.properties", \
+     "--models", \
+     "anomaly=anomaly.mar", \
+     "--model-store", \
+     "/home/model-server/model-store"]

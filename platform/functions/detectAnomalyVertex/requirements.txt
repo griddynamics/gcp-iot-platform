@@ -1,0 +1,6 @@
+google-cloud-aiplatform==1.16.1
+google-cloud-bigquery[bqstorage,pandas]==2.34.4
+google-cloud-bigquery-storage==2.15.0
+google-cloud-logging==3.2.2
+google-cloud-iot==2.6.2
+pandas==1.4.3

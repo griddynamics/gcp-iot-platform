@@ -1,0 +1,5 @@
+functions-framework==3.*
+google-cloud-logging==3.2.2
+google-cloud-aiplatform==1.16.1
+google-cloud-pipeline-components==1.0.22
+kfp==1.8.14

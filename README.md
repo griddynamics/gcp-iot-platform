@@ -26,21 +26,21 @@ adding roles for access to automation deploying, creating bucket for storage sta
 
 ## API Tools for working with IoT at GCP
 Enable this API for working with all part of the platform:
-* Artifact Registry API
-* IAM Service Account Credentials API
-* Vertex AI API
-* Google Cloud IoT API
-* Dataflow API
-* BigQuery API
+* [Artifact Registry API](https://cloud.google.com/artifact-registry/docs/reference/rest)
+* [IAM Service Account Credentials API](https://cloud.google.com/iam/docs/reference/credentials/rest)
+* [Vertex AI API](https://cloud.google.com/vertex-ai/docs/reference/rest)
+* [Google Cloud IoT API](https://cloud.google.com/iot/docs/reference/cloudiotdevice/rest)
+* [Dataflow API](https://cloud.google.com/dataflow/docs/reference/rest)
+* [BigQuery API](https://cloud.google.com/bigquery/docs/reference/rest)
 * BigQuery Storage API
-* Cloud Build API
-* Cloud Pub/Sub API
-* Cloud Functions API
-* Cloud Run Admin API
-* Serverless VPC Access API
-* Compute Engine API
-* Cloud Monitoring API
-* Cloud Logging API
+* [Cloud Build API](https://cloud.google.com/build/docs/api/reference/rest)
+* [Cloud Pub/Sub API](https://cloud.google.com/pubsub/docs/reference/rest)
+* [Cloud Functions API](https://cloud.google.com/functions/docs/reference/rest)
+* [Cloud Run Admin API](https://cloud.google.com/run/docs/reference/rest)
+* [Serverless VPC Access API](https://cloud.google.com/vpc/docs/configure-serverless-vpc-access)
+* [Compute Engine API](https://cloud.google.com/compute/docs/reference/rest/v1)
+* [Cloud Monitoring API](https://cloud.google.com/monitoring/api/v3)
+* [Cloud Logging API](https://cloud.google.com/logging/docs/reference/v2/rest)
 
 ## Roles for deploy IoT into GCP
 
@@ -65,8 +65,7 @@ terraform {
 }
 ```
 This is required for storage terraform state files remotely.
-For more information check this link to terraform official documentation: 
-https://www.terraform.io/language/settings/backends/gcs
+For more information check this link to terraform [official documentation](https://www.terraform.io/language/settings/backends/gcs)
 
 ## Platform customization
 Next step you can start preparing the deployment of the platform with customized configs
@@ -90,6 +89,9 @@ Also specify your prefix under which the state will be stored on the platform. D
 * zone - Main zone in region
 * image_tag - Tags of images from the Google Artifact Registry.
 
+## Note
+Iot Core working only in asia-east1, europe-west1, us-central1. 
+For more information check this link to cloud IoT core [official documentation](https://cloud.google.com/iot/docs/requirements#permitted_characters_and_size_requirements)
 ## Deploy platform
 After customizing the platform, you need to start the deployment
 ```smartyconfig
@@ -104,4 +106,4 @@ gcloud compute ssh YOUR-RESOURCE-PREFIX-mqtt-client --project YOUR-PROJECT --zon
 
 ## Related links
 
-* [Grid Dynamics blog post](#)
+* [Grid Dynamics blog post](https://blog.griddynamics.com/building-an-iot-platform-in-gcp-a-starter-kit/)

@@ -2,3 +2,11 @@
 .DS_Store
 .idea/
 *.iml
+
+#Terraform
+*.lock.hcl
+.terraform/
+.terragrunt-cache
+*.tfstate
+*.backup
+*.pub
