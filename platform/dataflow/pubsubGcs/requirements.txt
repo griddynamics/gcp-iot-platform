@@ -1,0 +1,4 @@
+apache-beam==2.40.0
+gcsfs==2022.7.1
+pyarrow==7.0.0
+google-apitools==0.5.31

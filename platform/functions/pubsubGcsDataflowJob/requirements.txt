@@ -1,0 +1,2 @@
+google-cloud-logging==3.2.1
+google-cloud-dataflow-client==0.5.5
